@@ -24,9 +24,14 @@ parts:
   gpufetch:
     source: https://github.com/Dr-Noob/gpufetch
     source-type: git
-    plugin: make
-    build-environment:
-      - PREFIX: "/usr"  
+    plugin: cmake
+    
+    build-packages:
+      - pciutils
+      
+    stage-packages:
+      - pciutils
+
       
     override-pull: |
       snapcraftctl pull
