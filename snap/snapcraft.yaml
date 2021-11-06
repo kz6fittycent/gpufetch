@@ -26,9 +26,11 @@ parts:
     
     build-packages:
       - pciutils
+      - nvidia-cuda-toolkit
       
     stage-packages:
       - pciutils
+      - nvidia-cuda-toolkit
       
     override-pull: |
       snapcraftctl pull
