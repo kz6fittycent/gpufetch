@@ -29,7 +29,6 @@ parts:
       
     stage-packages:
       - pciutils
-
       
     override-pull: |
       snapcraftctl pull
