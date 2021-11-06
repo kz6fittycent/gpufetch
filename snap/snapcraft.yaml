@@ -1,0 +1,33 @@
+name: gpufetch
+adopt-info: gpufetch
+summary: Simple yet fancy GPU architecture fetching tool
+description: |
+  Simple yet fancy GPU architecture fetching tool
+  
+license: MIT
+
+base: core20
+grade: stable
+confinement: strict
+compression: lzo
+
+architectures:
+  - build-on: amd64
+  - build-on: arm64
+  - build-on: armhf
+  
+apps:
+  gpufetch:
+    command: usr/bin/gpufetch
+
+parts:
+  gpufetch:
+    source: https://github.com/Dr-Noob/gpufetch
+    source-type: git
+    plugin: make
+    build-environment:
+      - PREFIX: "/usr"  
+      
+    override-pull: |
+      snapcraftctl pull
+      snapcraftctl set-version "$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"    
