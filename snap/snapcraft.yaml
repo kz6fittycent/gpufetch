@@ -23,7 +23,9 @@ parts:
     source: https://github.com/Dr-Noob/gpufetch
     source-type: git
     plugin: cmake
-    
+    cmake-parameters:
+      - -DCMAKE_INSTALL_PREFIX=/usr
+      
     build-packages:
       - pciutils
       - nvidia-cuda-toolkit
